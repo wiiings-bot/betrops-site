@@ -67,7 +67,7 @@ map.on('click', function(e) {
 // Add Call of Duty Mobile logo as a non-clickable image overlay
 L.imageOverlay(
   'https://styles.redditmedia.com/t5_penom/styles/communityIcon_386whbh0z5041.png',
-  [[ -50, -120 ], [ -20, -100 ]],
+  [[ -50, -160 ], [ -20, -100 ]],
   {
     opacity: 10.95
   }
