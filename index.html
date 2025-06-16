@@ -2,14 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BetrOps</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BetrOps Map</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha512-sA+z0pA8KBu9PQ4xLdkjL1hvxdxI+I6aoyl7QEx6tVWEnm8TT+MiJ7iTQlA5TJWV4RGe1w+Zx8H0CWjE7uPf6g=="
+    crossorigin=""
+  />
+
+  <!-- Custom Styles -->
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #0a0a0a;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Popup Form Styling */
+    .leaflet-popup-content form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leaflet-popup-content label {
+      margin-top: 8px;
+      color: gold;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .leaflet-popup-content input {
+      padding: 6px;
+      margin-top: 4px;
+      background-color: black;
+      border: 1px solid gold;
+      color: gold;
+    }
+
+    .leaflet-popup-content button {
+      margin-top: 12px;
+      padding: 8px;
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .leaflet-popup-content button:hover {
+      background-color: #bfae06;
+    }
+  </style>
 </head>
 <body>
   <div id="map"></div>
-  <script src="main.js"></script>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdlxUMnS4Gv6dW+p2MCiU9Md2RzUAY1aR9a1jRz2eUfLZ1Xzh3TbnS1T+XG1Icmc7qQVd7y+P+A=="
+    crossorigin=""
+  ></script>
+
+  <!-- Your main.js script must be loaded as a module -->
+  <script type="module" src="main.js"></script>
 </body>
 </html>
