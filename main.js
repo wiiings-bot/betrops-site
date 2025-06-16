@@ -1,26 +1,23 @@
 
 const map = L.map('map', {
   worldCopyJump: false,
+  continuousWorld: false,
+  noWrap: true,
   maxBounds: [
     [-85, -180],
     [85, 180]
   ],
   maxBoundsViscosity: 1.0,
-  continuousWorld: false,
-  noWrap: true
+  minZoom: 2,
+  maxZoom: 10
 }).setView([20, 0], 2);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 19,
-  noWrap: true
-}).addTo(map);
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 19
+  noWrap: true,
+  bounds: [[-85, -180], [85, 180]]
 }).addTo(map);
 
 function addMarker(name, uid, latlng) {
