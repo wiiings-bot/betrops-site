@@ -66,7 +66,7 @@ map.on('click', function(e) {
 });
 // Add Call of Duty Mobile logo as a non-clickable image overlay
 L.imageOverlay(
-  'https://www.citypng.com/public/uploads/preview/hd-yellow-neon-call-of-duty-mobile-cod-m-game-logo-png-701751694787738ubebvvqniv.png',
+  'https://www.pngaaa.com/detail/2217710',
   [[ -40, -160 ], [ -10, -110 ]],
   {
     opacity: 10.95
