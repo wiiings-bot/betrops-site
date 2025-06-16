@@ -1,5 +1,12 @@
 
-const map = L.map('map').setView([20, 0], 2);
+const map = L.map('map', {
+  worldCopyJump: false,   // prevents snapping around the world
+  maxBounds: [
+    [-85, -180],
+    [85, 180]
+  ],
+  maxBoundsViscosity: 1.0 // makes the bounds act like a hard wall
+}).setView([20, 0], 2);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
