@@ -1,22 +1,24 @@
 
+/* Base layout for full screen map */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #0a0a0a;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
+
 #map {
   width: 100%;
   height: 100%;
 }
-/* CODM-style popup form theme */
+
+/* CODM-style Leaflet popup */
 .leaflet-popup-content-wrapper {
-  background-color: #000 !important;      /* Force black background */
-  color: #FFD700 !important;              /* Force gold/yellow text */
-  font-family: 'Arial', sans-serif;
-  border-radius: 8px;
-  border: 1px solid #FFD700;
+  background: #000 !important;
+  color: #FFD700 !important;
+  border-radius: 8px !important;
+  border: 1px solid #FFD700 !important;
 }
 
 .leaflet-popup-tip {
@@ -25,37 +27,36 @@ body, html {
 
 .leaflet-popup-content {
   color: #FFD700 !important;
-  font-size: 14px;
+  font-family: Arial, sans-serif !important;
 }
 
 .leaflet-popup-content label {
+  color: #FFD700 !important;
   display: block;
-  margin-top: 5px;
+  margin: 4px 0 2px 0;
   font-weight: bold;
-  color: #FFD700;
 }
 
 .leaflet-popup-content input {
-  background-color: #111;
-  color: #FFD700;
-  border: 1px solid #FFD700;
-  padding: 6px;
-  width: 100%;
-  margin-top: 3px;
-  border-radius: 4px;
+  background: #111 !important;
+  color: #FFD700 !important;
+  border: 1px solid #FFD700 !important;
+  padding: 6px !important;
+  width: 100% !important;
+  border-radius: 4px !important;
 }
 
 .leaflet-popup-content button {
-  background-color: #FFD700;
-  color: #000;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-weight: bold;
+  background-color: #FFD700 !important;
+  color: #000 !important;
+  border: none !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  margin-top: 10px !important;
+  font-weight: bold !important;
 }
 
 .leaflet-popup-content button:hover {
-  background-color: #e6c200;
+  background-color: #e6c200 !important;
 }
