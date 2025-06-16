@@ -12,14 +12,20 @@ body, html {
 }
 /* CODM-style popup form theme */
 .leaflet-popup-content-wrapper {
-  background-color: #000;      /* Black background */
-  color: #FFD700;              /* Gold/yellow text */
+  background-color: #000 !important;      /* Force black background */
+  color: #FFD700 !important;              /* Force gold/yellow text */
   font-family: 'Arial', sans-serif;
   border-radius: 8px;
+  border: 1px solid #FFD700;
+}
+
+.leaflet-popup-tip {
+  background-color: #000 !important;
 }
 
 .leaflet-popup-content {
-  color: #FFD700;
+  color: #FFD700 !important;
+  font-size: 14px;
 }
 
 .leaflet-popup-content label {
