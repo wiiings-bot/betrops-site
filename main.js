@@ -32,33 +32,6 @@ const customIcon = L.icon({
   shadowSize: [22, 22]
 });
 
-// Firebase Setup
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-// TODO: Replace with your actual config
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const pinsRef = collection(db, "pins");
-
-// Load all saved pins on map load
-async function loadPins() {
-  const querySnapshot = await getDocs(pinsRef);
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    addMarker(data.name, data.uid, data.discord, data.latlng);
-  });
-}
-
 // Add marker to map
 function addMarker(name, uid, discord, latlng) {
   L.marker(latlng, { icon: customIcon }).addTo(map)
@@ -82,25 +55,12 @@ map.on('click', function (e) {
     `)
     .openOn(map);
 
-  document.getElementById('pinForm').addEventListener('submit', async function (evt) {
+  document.getElementById('pinForm').addEventListener('submit', function (evt) {
     evt.preventDefault();
     const name = document.getElementById('ign').value;
     const uid = document.getElementById('uid').value;
     const discord = document.getElementById('discord').value;
-    const latlng = e.latlng;
-
-    // Save to Firestore
-    await addDoc(pinsRef, {
-      name,
-      uid,
-      discord,
-      latlng
-    });
-
-    addMarker(name, uid, discord, latlng);
+    addMarker(name, uid, discord, e.latlng);
     map.closePopup();
   });
 });
-
-// Load pins from Firebase on start
-loadPins();
