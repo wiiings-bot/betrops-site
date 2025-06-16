@@ -20,14 +20,24 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   bounds: [[-85, -180], [85, 180]]
 }).addTo(map);
 
-// Function to add a pin to the map with popup info
+// Custom marker icon (smaller & golden)
+const customIcon = L.icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-gold.png',
+  iconSize: [16, 25], // ~75% of default size
+  iconAnchor: [8, 25],
+  popupAnchor: [1, -24],
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  shadowSize: [30, 30]
+});
+
+// Function to add marker with popup
 function addMarker(name, uid, discord, latlng) {
-  L.marker(latlng).addTo(map)
+  L.marker(latlng, { icon: customIcon }).addTo(map)
     .bindPopup(`<strong>${name}</strong><br>UID: ${uid}<br>Discord: ${discord || 'N/A'}`)
     .openPopup();
 }
 
-// On map click, open input popup
+// Map click → open input form popup
 map.on('click', function(e) {
   const popup = L.popup()
     .setLatLng(e.latlng)
@@ -38,13 +48,13 @@ map.on('click', function(e) {
         <label>UID</label>
         <input type="text" id="uid" required />
         <label>Discord Username</label>
-        <input type="text" id="discord" placeholder="e.g. yourname#1234" />
+        <input type="text" id="discord" />
         <button type="submit">Drop Pin</button>
       </form>
     `)
     .openOn(map);
 
-  // Form submission handler
+  // Form submit logic
   document.getElementById('pinForm').addEventListener('submit', function(evt) {
     evt.preventDefault();
     const name = document.getElementById('ign').value;
