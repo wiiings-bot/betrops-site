@@ -20,12 +20,14 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   bounds: [[-85, -180], [85, 180]]
 }).addTo(map);
 
-function addMarker(name, uid, latlng) {
+// Function to add a pin to the map with popup info
+function addMarker(name, uid, discord, latlng) {
   L.marker(latlng).addTo(map)
-    .bindPopup(`<strong>${name}</strong><br>UID: ${uid}`)
+    .bindPopup(`<strong>${name}</strong><br>UID: ${uid}<br>Discord: ${discord || 'N/A'}`)
     .openPopup();
 }
 
+// On map click, open input popup
 map.on('click', function(e) {
   const popup = L.popup()
     .setLatLng(e.latlng)
@@ -35,16 +37,20 @@ map.on('click', function(e) {
         <input type="text" id="ign" required />
         <label>UID</label>
         <input type="text" id="uid" required />
+        <label>Discord Username</label>
+        <input type="text" id="discord" placeholder="e.g. yourname#1234" />
         <button type="submit">Drop Pin</button>
       </form>
     `)
     .openOn(map);
 
+  // Form submission handler
   document.getElementById('pinForm').addEventListener('submit', function(evt) {
     evt.preventDefault();
     const name = document.getElementById('ign').value;
     const uid = document.getElementById('uid').value;
-    addMarker(name, uid, e.latlng);
+    const discord = document.getElementById('discord').value;
+    addMarker(name, uid, discord, e.latlng);
     map.closePopup();
   });
 });
