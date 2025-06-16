@@ -67,7 +67,7 @@ map.on('click', function(e) {
 // Add Call of Duty Mobile logo as a non-clickable image overlay
 L.imageOverlay(
   'https://www.citypng.com/public/uploads/preview/hd-call-of-duty-mobile-cod-m-game-official-logo-png-701751694787732iljpb4piny.png',
-  [[-10, -150], [25, -100]], // SW and NE corners of the image
+  [[-40, -160], [-10, -110]], // SW and NE corners of the image
   {
     opacity: 0.8
   }
