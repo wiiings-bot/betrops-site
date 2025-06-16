@@ -1,11 +1,13 @@
 
 const map = L.map('map', {
-  worldCopyJump: false,   // prevents snapping around the world
+  worldCopyJump: false,
   maxBounds: [
     [-85, -180],
     [85, 180]
   ],
-  maxBoundsViscosity: 1.0 // makes the bounds act like a hard wall
+  maxBoundsViscosity: 1.0,
+  continuousWorld: false,
+  noWrap: true
 }).setView([20, 0], 2);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
